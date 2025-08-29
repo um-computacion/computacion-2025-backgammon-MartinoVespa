@@ -9,3 +9,4 @@ class Jugador:
 
     def __str__(self):
         return f"Jugador {self.nombre} ({self.ficha}) - Victorias: {self.victorias}" 
+    
