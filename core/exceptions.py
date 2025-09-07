@@ -13,4 +13,4 @@ def findSeparation(value):
             return i
         return 0
     
-exitTerms = ("exit", "salir", "s")
+
