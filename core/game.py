@@ -6,4 +6,8 @@ def makeMove(self, space, side, steps):
         elif (self.xJail > 0 and steps == 0 and space > 17):
             if (self.myBoard[space] > 1):
                 return (False,"Ese lugar ya está ocupado")
-             
+            elif (self.xJail > 0 and steps == 0 and space > 17):
+                if (self.myBoard[space] > 1):
+                    return (False, "El espacio esta ocupado")
+                elif (self.myBoard[space] == 1):
+                    
