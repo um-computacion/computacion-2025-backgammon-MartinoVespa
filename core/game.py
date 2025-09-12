@@ -1,7 +1,7 @@
 def makeMove(self, space, side, steps):
 
     if side:
-        if self.xJail > 0 and (steps != 0 or space < 18)):
+        if self.xJail > 0 and (steps != 0 or space < 18):
             return (False, "Asegurate primero de liberar tu ficha de la carcel")
         elif (self.xJail > 0 and steps == 0 and space > 17):
             if (self.myBoard[space] > 1):
@@ -18,4 +18,4 @@ def makeMove(self, space, side, steps):
                 else:
                     self.xJail = self.xJail - 1
                     self.myBoard[space] = self.myBoard[space] - 1
-                    
+                    return (False, )
