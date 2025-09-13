@@ -19,3 +19,23 @@ def makeMove(self, space, side, steps):
                     self.xJail = self.xJail - 1
                     self.myBoard[space] = self.myBoard[space] - 1
                     return (False, )
+            else:
+                    self.oJail -= 1
+                    self.myBoard[space] = 1
+                    return (True, "Una pieza salió de la carcel y se movió al espacio vacío")
+        
+        else:
+            if space < 0 or space >= len(self.myBoard):
+                return (False, "Movimiento fuera del tablero")
+            
+            if self.myBoard[space] < -1:
+                return (False, "El espacio está ocupado por tus propias fichas")
+            
+            if self.myBoard[space] == -1:
+                self.xJail += 1
+                self.xHome -= 1
+                self.myBoard[space] = 1
+                return (True, "Capturaste una ficha enemiga y avanzaste")
+            
+            self.myBoard[space] = self.myBoard[space] + 1  
+            return (True, "Movimiento realizado con éxito")
