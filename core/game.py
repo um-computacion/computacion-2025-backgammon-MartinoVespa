@@ -25,40 +25,18 @@ def makeMove(self, space, side, steps):
                     return (True, "Una pieza salió de la carcel y se movió al espacio vacío")
         
         else:
-            if space < 0 or space >= len(self.myBoard):
-                return (False, "Movimiento fuera del tablero")
-            
-            if self.myBoard[space] < -1:
-                return (False, "El espacio está ocupado por tus propias fichas")
-            
-            if self.myBoard[space] == -1:
-                self.xJail += 1
-                self.xHome -= 1
-                self.myBoard[space] = 1
-                return (True, "Capturaste una ficha enemiga y avanzaste")
-            
-            self.myBoard[space] = self.myBoard[space] + 1  
-            return (True, "Movimiento realizado con éxito")
-            
-    elif self.myBoard[space] == -1:
-                self.oJail -= 1
-                self.myBoard[space] = 1
-                self.xJail += 1
-                self.xHome -= 1
-                return (True, "Una pieza salió de la carcel y envió a otra a la carcel")
+            self.oJail = self.oJail - 1
+            self.myBoard[space] = self.myBoard[space] + 1
+            return (True, "La pieza salio de la carcel")
+    elif (self.myBoard[space] <= 0):
+        return (False, "El espacio esta vacio o el equipo no es el correcto")
     else:
-                self.oJail -= 1
-                self.myBoard[space] = 1
-                return (True, "Una pieza salió de la carcel y se movió al espacio vacío")   
-    else:
-    if space < 0 or space >= len(self.myBoard):
-                return (False, "Movimiento fuera del tablero")
-    if self.myBoard[space] > 1:
-                return (False, "El espacio está ocupado por tus propias fichas")
-    if self.myBoard[space] == 1:
-                self.oJail += 1
-                self.oHome -= 1
-                self.myBoard[space] = -1
-                return (True, "Capturaste una ficha enemiga y avanzaste")
-    self.myBoard[space] -= 1
-    return (True, "Movimiento realizado con éxito")
+        newSpace = space + steps
+        if (newSpace > 23):
+            if (self.oHome < 15):
+                return (False, "Asegurate que todas tus piezas esten en tu base antes de sacarlas")
+            else:
+                self.myBoard[space] = self.myBoard[space] - 1
+                self.oFree = self.oFree + 1
+                return (True, "Pieza despejada")
+            
