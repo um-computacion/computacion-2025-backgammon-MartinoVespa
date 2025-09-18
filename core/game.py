@@ -48,4 +48,11 @@ def makeMove(self, space, side, steps):
             if (newSpace < 6):
                 self.xHome = self.xHome - 1
             return (True, "Enviar a uno a la carcel")
-        
+        else:
+            self.myBoard[space] = self.myBoard[space] - 1
+            self.myBoard[newSpace] = self.myBoard[newSpace] + 1
+            if (newSpace > 17):
+                self.oHome = self.oHome + 1
+            if (newSpace > 11):
+                self.updateRows(True)
+                
