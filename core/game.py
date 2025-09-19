@@ -55,4 +55,7 @@ def makeMove(self, space, side, steps):
                 self.oHome = self.oHome + 1
             if (newSpace > 11):
                 self.updateRows(True)
-                
+            else:
+                self.updateRows(False)
+            return (True, "Movimiento hecho")
+        
