@@ -63,3 +63,12 @@ def updateRows(self, top):
     changed = False
     if top:
         for i in range(12):
+            point = self.board[i]  
+            if self.updatePoint(i, point):
+                changed = True
+    else:
+        for i in range(12, 24):
+            point = self.board[i]
+            if self.updatePoint(i, point):
+                changed = True
+    return changed
