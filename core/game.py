@@ -59,3 +59,7 @@ def makeMove(self, space, side, steps):
                 self.updateRows(False)
             return (True, "Movimiento hecho")
         
+def updateRows(self, top):
+    changed = False
+    if top:
+        for i in range(12):
