@@ -9,4 +9,3 @@ class TestBackgammonMakeMove(unittest.TestCase):
         g.xJail = 1
         result = g.makeMove(space=5, side=True, steps=2)
         self.assertEqual(result, (False, "Asegurate primero de liberar tu ficha de la carcel"))
-        
