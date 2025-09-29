@@ -73,3 +73,11 @@ def updateRows(self, top):
                 changed = True
     if not changed:
         self.maxRows = 5
+
+def __repr__(self):
+    
+    emptyline = "|                  | |                 |"
+    if (self.oJail > 0):
+        boardstring = "                 O Jail: " + str(self.oJail) + "\n"
+        boardstring += "               X HOME BOARD     Freed:" + str(self.xFree) + "\n"
+    
