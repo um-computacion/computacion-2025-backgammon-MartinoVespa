@@ -63,12 +63,13 @@ def updateRows(self, top):
     changed = False
     if top:
         for i in range(12):
-            point = self.board[i]  
-            if self.updatePoint(i, point):
+            if (self.myBoard[i] > 5):
+                self.maxRows = self.myBoard[i]
                 changed = True
     else:
-        for i in range(12, 24):
-            point = self.board[i]
-            if self.updatePoint(i, point):
+        for i in range(23,11,-1):
+            if (self.myBoard[i] > 5):
+                self.maxRows = self.myBoard[i]
                 changed = True
-    return changed
+    if not changed:
+        self.maxRows = 5
