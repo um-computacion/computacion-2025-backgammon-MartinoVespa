@@ -31,4 +31,17 @@ class TestBackgammonMakeMove(unittest.TestCase):
         g.myBoard[7] = 0
         res = g.makeMove(space=7, side=False, steps=3)
         self.assertEqual(res, (False, "El espacio esta vacio o el equipo no es el correcto"))
+    
+    def test_jail_enters_and_captures_single_opponent(self):
+        g = Backgammon()
+        g.xJail = 1
+        g.oJail = 0
+        g.oHome = 10
+        g.myBoard[18] = 1
+        res = g.makeMove(space=18, side=True, steps=0)
+        self.assertEqual(res, (True, "Una pieza salio de la carcel y envio a otra a la carcel"))
+        self.assertEqual(g.xJail, 0)          
+        self.assertEqual(g.myBoard[18], -1)   
+        self.assertEqual(g.oJail, 1)         
+        self.assertEqual(g.oHome, 9)
         
