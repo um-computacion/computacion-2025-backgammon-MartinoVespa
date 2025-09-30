@@ -80,4 +80,10 @@ def __repr__(self):
     if (self.oJail > 0):
         boardstring = "                 O Jail: " + str(self.oJail) + "\n"
         boardstring += "               X HOME BOARD     Freed:" + str(self.xFree) + "\n"
+    else:
+        boardstring =  "              X HOME BOARD     Freed:" + str(self.xFree) + "\n"
+    boardstring += " --------------------------------------------------\n"
+    boardstring += "|12 11 10 9 8  7 | | 6 5 4 3 2 1 |\n"
+    for i in range(self.maxRows):
+        boardstring += self.populateTop(i)
     
