@@ -86,4 +86,8 @@ def __repr__(self):
     boardstring += "|12 11 10 9 8  7 | | 6 5 4 3 2 1 |\n"
     for i in range(self.maxRows):
         boardstring += self.populateTop(i)
+    boardstring += " --------------------------------------------------\n"
+    for i in range(self.maxRows-1,-1,-1):
+        boardstring += self.populateBottom(i)
+    boardstring += "|13 14 15 16 17 18 | | 19 20 21 22 23 24|\n"
     
