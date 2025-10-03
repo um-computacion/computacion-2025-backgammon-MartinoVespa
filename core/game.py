@@ -91,3 +91,18 @@ def __repr__(self):
         boardstring += self.populateBottom(i)
     boardstring += "|13 14 15 16 17 18 | | 19 20 21 22 23 24|\n"
     
+def populateTop(self, row):
+    line = "|"
+    for i in range(11, -1, -1):
+        val = self.myBoard[i]
+        if abs(val) > row:
+            if val > 0:
+                line += " O "
+            elif val < 0:
+                line += " X "
+            else:
+                line += "   "
+        else:
+            line += "   "
+    line += "| |\n"
+    return line
