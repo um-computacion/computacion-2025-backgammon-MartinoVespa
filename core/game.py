@@ -90,6 +90,11 @@ def __repr__(self):
     for i in range(self.maxRows-1,-1,-1):
         boardstring += self.populateBottom(i)
     boardstring += "|13 14 15 16 17 18 | | 19 20 21 22 23 24|\n"
+    boardstring += " --------------------------------------------------\n"
+    boardstring += "            O HOME BOARD  Freed: " + str(self.oFree) + "\n"
+    if (self.xJail > 0):
+        boardstring += "                  X Jail: " + str(self.xJail) + "\n"
+    return boardstring
     
 def populateTop(self, row):
     line = "|"
