@@ -95,19 +95,26 @@ def __repr__(self):
     if (self.xJail > 0):
         boardstring += "                  X Jail: " + str(self.xJail) + "\n"
     return boardstring
-    
-def populateTop(self, row):
-    line = "|"
-    for i in range(11, -1, -1):
-        val = self.myBoard[i]
-        if abs(val) > row:
-            if val > 0:
-                line += " O "
-            elif val < 0:
-                line += " X "
-            else:
-                line += "   "
-        else:
-            line += "   "
-    line += "| |\n"
+
+def populateTop(self, lineNumber):
+    line = "|                       | |                         |\n"
+    boardtostring = {}
+    boardtostring[0] = 48
+    boardtostring[1] = 44
+    boardtostring[2] = 40
+    boardtostring[3] = 36
+    boardtostring[4] = 32
+    boardtostring[5] = 28
+    boardtostring[6] = 21
+    boardtostring[7] = 17
+    boardtostring[8] = 13
+    boardtostring[9] = 9
+    boardtostring[10] = 5
+    boardtostring[11] = 1
+    for i in range(12):
+        if(self.myBoard[i] > lineNumber):
+            line = line[:boardtostring[i]] + 'O' + line[boardtostring[i]+1:]
+        elif (abs(self.myBoard[i]) > lineNumber and self.myBoard[i] < 0):
+            line = line[:boardtostring[i]] + 'X' + line[boardtostring[i]+1:]
     return line
+
