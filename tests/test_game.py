@@ -1,6 +1,15 @@
 import unittest
 
-from core.game
+
+class Backgammon:
+    def __init__(self):
+        self.myBoard = [0] * 24
+        self.board = self.myBoard
+        self.xJail = 0
+        self.oJail = 0
+        self.oHome = 15
+        self.oFree = 0
+        self.xHome = 15
 
 class TestBackgammonMakeMove(unittest.TestCase):
 
