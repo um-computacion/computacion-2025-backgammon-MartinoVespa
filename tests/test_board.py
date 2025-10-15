@@ -76,3 +76,17 @@ def updateRows(self, top):
                 if self.updatePoint(i, point):
                     changed = True
         return changed
+
+def test_repr_contains_labels():
+        b = board()
+        text = repr(b)
+        assert "X TABLERO DE INICIO" in text
+        assert "O TABLERO DE INICIO" in text
+
+def test_populateTop_and_populateBottom():
+     b = board()
+     top = b.populateTop(0)
+     bottom = b.populateBottom(0)
+     assert "|" in top
+     assert "|" in bottom
+
