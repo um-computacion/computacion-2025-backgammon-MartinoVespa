@@ -43,4 +43,17 @@ def makeMove(self, space, side, steps):
             if (newSpace < 0):
                 if (self.xHome < 15):
                     return (False, "Asegurate de que todas tus piezas esten en tu casa antes de sacarlas afuera")
-                
+                else:
+                    self.myBoard[space] = self.myBoard[space] - 1
+                    self.xFree = self.xFree + 1
+                    return (True, "Pieza despejada")
+            elif (self.myBoard[newSpace] > 1):
+                return (False, "Nuevo espacio ocupado")
+            elif (self.myBoard[newSpace] == 1):
+                self.myBoard[space] = self.myBoard[space] + 1
+                self.myBoard[newSpace] = -1
+                self.oJail = self.oJail + 1
+                if (newSpace >= 18):
+                    self.oHome = self.oHome - 1
+                return (True, "Se envio a uno a la carcel")
+            
